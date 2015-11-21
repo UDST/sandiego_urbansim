@@ -1,0 +1,245 @@
+name: rsh
+
+model_type: segmented_regression
+
+segmentation_col: development_type_id
+
+fit_filters:
+- res_price_per_sqft > 0
+- development_type_id in [19,20,21]
+- residential_units > 0
+- year_built > 1000
+- year_built < 2020
+
+predict_filters:
+- residential_units > 0
+- development_type_id in [19,20,21]
+
+min_segment_size: 10
+
+default_config:
+    model_expression: np.log1p(res_price_per_sqft) ~ I(year_built < 1940) + I(year_built
+        > 2005) + year_built + ave_income + jobs_1500m + distance_to_coast + distance_to_freeway
+        + distance_to_onramp + distance_to_transit + population_3000m + res_occupancy_3000m
+    ytransform: np.exp
+
+models:
+    &id001 !!python/long '19':
+        fit_parameters:
+            Coefficient:
+                I(ave_age_of_head_1500m < 35)[T.True]: -58.992417382446455
+                I(distance_to_coast < 10000)[T.True]: 0.3162413991878444
+                I(distance_to_freeway < 400)[T.True]: -0.007247238794994615
+                I(distance_to_park < 400)[T.True]: -0.0008768035364895566
+                I(distance_to_school < 800)[T.True]: 0.09260517150923012
+                I(year_built < 1940)[T.True]: 0.8174198844217879
+                Intercept: -58.99241738244804
+                ave_children_1500m: -0.6362024146392068
+                ave_income: 0.25509124589251303
+                ave_year_built_1500m: 14.67920302606107
+                jobs_400m: -0.11021759474023124
+                np.log1p(distance_to_coast): -0.12733759918662568
+                res_occupancy_3000m: 3.1666563102352865
+                residential_units_1500m: 3.248037010389526e-05
+                year_built: 0.00381392759769017
+                year_built_1940to1950[T.True]: 0.6134487222799252
+                year_built_1950to1960[T.True]: 0.5045732002300709
+                year_built_1960to1970[T.True]: 0.2723014241606787
+                year_built_1970to1980[T.True]: 0.19375193677171465
+            Std. Error:
+                I(ave_age_of_head_1500m < 35)[T.True]: 1.7963997472865507
+                I(distance_to_coast < 10000)[T.True]: 0.018419880664078642
+                I(distance_to_freeway < 400)[T.True]: 0.025491460553283718
+                I(distance_to_park < 400)[T.True]: 0.01590014181747842
+                I(distance_to_school < 800)[T.True]: 0.012776717937259765
+                I(year_built < 1940)[T.True]: 0.04041251619966174
+                Intercept: 1.7963997472865953
+                ave_children_1500m: 0.0150754119864136
+                ave_income: 0.010876444473497547
+                ave_year_built_1500m: 0.4893950327962297
+                jobs_400m: 0.0027486421579698663
+                np.log1p(distance_to_coast): 0.0068775030965759435
+                res_occupancy_3000m: 0.0501594248252356
+                residential_units_1500m: 2.4253798423797097e-06
+                year_built: 0.0005277249777480297
+                year_built_1940to1950[T.True]: 0.032209838033991925
+                year_built_1950to1960[T.True]: 0.02398609920832045
+                year_built_1960to1970[T.True]: 0.02035347811127902
+                year_built_1970to1980[T.True]: 0.015047400060505737
+            T-Score:
+                I(ave_age_of_head_1500m < 35)[T.True]: -32.839248319620445
+                I(distance_to_coast < 10000)[T.True]: 17.168482519246695
+                I(distance_to_freeway < 400)[T.True]: -0.28430064961738927
+                I(distance_to_park < 400)[T.True]: -0.05514438465735694
+                I(distance_to_school < 800)[T.True]: 7.24796242383756
+                I(year_built < 1940)[T.True]: 20.22689902265056
+                Intercept: -32.83924831962051
+                ave_children_1500m: -42.20132857480584
+                ave_income: 23.453551067546904
+                ave_year_built_1500m: 29.994589324271047
+                jobs_400m: -40.09892463471397
+                np.log1p(distance_to_coast): -18.515091509013264
+                res_occupancy_3000m: 63.13183058355399
+                residential_units_1500m: 13.391869403856552
+                year_built: 7.227112148387237
+                year_built_1940to1950[T.True]: 19.04538363814608
+                year_built_1950to1960[T.True]: 21.036067425879793
+                year_built_1960to1970[T.True]: 13.37861876343292
+                year_built_1970to1980[T.True]: 12.876107233983033
+        fit_rsquared: 0.2345294140024362
+        fit_rsquared_adj: 0.23424485866881217
+        fitted: true
+        model_expression: np.log1p(res_price_per_sqft) ~ I(year_built < 1940) + ave_income
+            + jobs_400m + I(distance_to_coast < 10000) + res_occupancy_3000m + I(distance_to_park
+            < 400) + np.log1p(distance_to_coast) + I(distance_to_school < 800) + I(distance_to_freeway
+            < 400) + residential_units_1500m + ave_children_1500m + year_built_1940to1950
+            + year_built_1950to1960 + year_built_1960to1970 + year_built_1970to1980
+            + year_built + ave_year_built_1500m + I(ave_age_of_head_1500m < 35)
+        name: *id001
+    &id002 !!python/long '20':
+        fit_parameters:
+            Coefficient:
+                I(ave_age_of_head_1500m < 35)[T.True]: -80.06591360051696
+                I(distance_to_coast < 10000)[T.True]: 0.20092939096215168
+                I(distance_to_freeway < 800)[T.True]: -0.3133073676963446
+                I(distance_to_park < 400)[T.True]: 0.2741514137285253
+                I(distance_to_school < 800)[T.True]: 0.04513866736041369
+                I(year_built < 1940)[T.True]: 0.9891548347993666
+                Intercept: -80.06591360051789
+                ave_children_1500m: 0.012543948511213293
+                ave_income: -0.11107927059513989
+                ave_year_built_1500m: 11.418472082229417
+                jobs_400m: -0.11704952636937446
+                np.log1p(distance_to_coast): -0.3533537461051358
+                np.log1p(distance_to_onramp): -0.11260201396109679
+                np.log1p(distance_to_transit): -0.22684244574407186
+                np.log1p(year_built): 10.822207408300649
+                res_occupancy_3000m: 3.0897783462910025
+                residential_units_1500m: 8.851399825778902e-05
+                year_built_1940to1950[T.True]: 1.1168858341425674
+                year_built_1950to1960[T.True]: 1.04394862822894
+                year_built_1960to1970[T.True]: 0.8075572971204255
+                year_built_1970to1980[T.True]: 0.43820410102932494
+                year_built_1980to1990[T.True]: 0.2069999629983625
+            Std. Error:
+                I(ave_age_of_head_1500m < 35)[T.True]: 30.88990835131054
+                I(distance_to_coast < 10000)[T.True]: 0.06250268175368698
+                I(distance_to_freeway < 800)[T.True]: 0.06534351985108101
+                I(distance_to_park < 400)[T.True]: 0.06357514386635624
+                I(distance_to_school < 800)[T.True]: 0.050812631559908665
+                I(year_built < 1940)[T.True]: 0.3042770593846704
+                Intercept: 30.889908351311036
+                ave_children_1500m: 0.07112013763934798
+                ave_income: 0.07523979379741844
+                ave_year_built_1500m: 1.2189718524054283
+                jobs_400m: 0.009966210300128774
+                np.log1p(distance_to_coast): 0.024534145182190485
+                np.log1p(distance_to_onramp): 0.021282632040262327
+                np.log1p(distance_to_transit): 0.028808044090574175
+                np.log1p(year_built): 7.865645728831175
+                res_occupancy_3000m: 0.23849798955175466
+                residential_units_1500m: 7.841883300302164e-06
+                year_built_1940to1950[T.True]: 0.23721969298786286
+                year_built_1950to1960[T.True]: 0.1933826057710343
+                year_built_1960to1970[T.True]: 0.16344965329558375
+                year_built_1970to1980[T.True]: 0.11214316159454082
+                year_built_1980to1990[T.True]: 0.07753977808637591
+            T-Score:
+                I(ave_age_of_head_1500m < 35)[T.True]: -2.5919764050423306
+                I(distance_to_coast < 10000)[T.True]: 3.2147323174705065
+                I(distance_to_freeway < 800)[T.True]: -4.794773351823982
+                I(distance_to_park < 400)[T.True]: 4.3122421288551
+                I(distance_to_school < 800)[T.True]: 0.888335557019807
+                I(year_built < 1940)[T.True]: 3.2508360531671436
+                Intercept: -2.591976405042319
+                ave_children_1500m: 0.1763768874411348
+                ave_income: -1.476336722748317
+                ave_year_built_1500m: 9.367297579264898
+                jobs_400m: -11.744637414269901
+                np.log1p(distance_to_coast): -14.402529351690552
+                np.log1p(distance_to_onramp): -5.290793626844515
+                np.log1p(distance_to_transit): -7.874274457192094
+                np.log1p(year_built): 1.375882893966649
+                res_occupancy_3000m: 12.955154683266262
+                residential_units_1500m: 11.28733938878922
+                year_built_1940to1950[T.True]: 4.708234042777013
+                year_built_1950to1960[T.True]: 5.3983584721419
+                year_built_1960to1970[T.True]: 4.940709758863984
+                year_built_1970to1980[T.True]: 3.907541884842463
+                year_built_1980to1990[T.True]: 2.6695970520804644
+        fit_rsquared: 0.2544047892203518
+        fit_rsquared_adj: 0.25226196637000076
+        fitted: true
+        model_expression: np.log1p(res_price_per_sqft) ~ I(year_built < 1940) + ave_income
+            + jobs_400m + I(distance_to_coast < 10000) + res_occupancy_3000m + I(distance_to_park
+            < 400) + np.log1p(distance_to_coast) + I(distance_to_school < 800) + residential_units_1500m
+            + ave_children_1500m + year_built_1940to1950 + year_built_1950to1960 +
+            year_built_1960to1970 + year_built_1970to1980 + year_built_1980to1990
+            + np.log1p(year_built) + ave_year_built_1500m + I(ave_age_of_head_1500m
+            < 35) + I(distance_to_freeway < 800) + np.log1p(distance_to_onramp) +
+            np.log1p(distance_to_transit)
+        name: *id002
+    &id003 !!python/long '21':
+        fit_parameters:
+            Coefficient:
+                I(ave_age_of_head_1500m < 35)[T.True]: -175.65430949394846
+                I(distance_to_school < 800)[T.True]: -0.453013451699564
+                I(year_built < 1940)[T.True]: 3.0768265699496515
+                Intercept: -175.65430949394633
+                ave_income: 0.41246994534700643
+                jobs_3000m: -3.173599652055411e-05
+                np.log1p(distance_to_coast): -0.29635040683894176
+                np.log1p(distance_to_onramp): -0.10454667595873253
+                np.log1p(distance_to_school): -0.31532451976534226
+                np.log1p(distance_to_transit): -0.30559906422109223
+                np.log1p(year_built): 47.02562272769249
+                res_occupancy_3000m: 1.0435750332058136
+                residential_units_1500m: 7.942386527679989e-05
+                year_built_1940to1950[T.True]: 3.196590548603455
+                year_built_1950to1960[T.True]: 2.066447685258134
+                year_built_1960to1970[T.True]: 1.6883425494622977
+            Std. Error:
+                I(ave_age_of_head_1500m < 35)[T.True]: 13.813837444779306
+                I(distance_to_school < 800)[T.True]: 0.07825921770442842
+                I(year_built < 1940)[T.True]: 0.19367879125998194
+                Intercept: 13.813837444779132
+                ave_income: 0.08410573437187004
+                jobs_3000m: 2.763539741534841e-06
+                np.log1p(distance_to_coast): 0.014076822311517268
+                np.log1p(distance_to_onramp): 0.019225343805060566
+                np.log1p(distance_to_school): 0.04675291840161697
+                np.log1p(distance_to_transit): 0.028084968292433305
+                np.log1p(year_built): 3.64897971795486
+                res_occupancy_3000m: 0.15505920202673903
+                residential_units_1500m: 6.404219281405325e-06
+                year_built_1940to1950[T.True]: 0.21588210011356737
+                year_built_1950to1960[T.True]: 0.13065715136359426
+                year_built_1960to1970[T.True]: 0.08703051122811374
+            T-Score:
+                I(ave_age_of_head_1500m < 35)[T.True]: -12.715822825925455
+                I(distance_to_school < 800)[T.True]: -5.78862739735679
+                I(year_built < 1940)[T.True]: 15.886233851075193
+                Intercept: -12.71582282592546
+                ave_income: 4.904183388058745
+                jobs_3000m: -11.483821290345645
+                np.log1p(distance_to_coast): -21.052365390481345
+                np.log1p(distance_to_onramp): -5.437961319121553
+                np.log1p(distance_to_school): -6.744488484261907
+                np.log1p(distance_to_transit): -10.881232303311064
+                np.log1p(year_built): 12.887334642147284
+                res_occupancy_3000m: 6.730171570377714
+                residential_units_1500m: 12.401802903190305
+                year_built_1940to1950[T.True]: 14.807112525410167
+                year_built_1950to1960[T.True]: 15.815802378146136
+                year_built_1960to1970[T.True]: 19.39943274648842
+        fit_rsquared: 0.2620362761862227
+        fit_rsquared_adj: 0.26042901231979565
+        fitted: true
+        model_expression: np.log1p(res_price_per_sqft) ~ I(year_built < 1940) + ave_income
+            + jobs_3000m + res_occupancy_3000m + I(distance_to_school < 800) + residential_units_1500m
+            + year_built_1940to1950 + year_built_1950to1960 + year_built_1960to1970
+            + np.log1p(year_built) + I(ave_age_of_head_1500m < 35) + np.log1p(distance_to_onramp)
+            + np.log1p(distance_to_transit) + np.log1p(distance_to_school) + np.log1p(distance_to_coast)
+        name: *id003
+
+fitted: true

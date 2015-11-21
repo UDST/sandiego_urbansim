@@ -1,0 +1,137 @@
+name: nrh
+
+model_type: segmented_regression
+
+segmentation_col: development_type_id
+
+fit_filters:
+- nonres_rent_per_sqft > 0
+
+predict_filters:
+- non_residential_sqft > 0
+
+min_segment_size: 10
+
+default_config:
+    model_expression: np.log1p(nonres_rent_per_sqft) ~ I(year_built < 1940) + I(year_built
+        > 2005) + np.log1p(stories) + ave_income + jobs_1500m + year_built + distance_to_coast
+        + distance_to_freeway + distance_to_onramp + distance_to_transit
+    ytransform: np.exp
+
+models:
+    &id001 !!python/long '2':
+        fit_parameters:
+            Coefficient:
+                I(year_built < 1940)[T.True]: 0.6949168156666273
+                I(year_built > 2005)[T.True]: 0.12222254784860259
+                Intercept: -0.9928346318717235
+                distance_to_coast: -5.061700190676122e-06
+                distance_to_freeway: -1.2792583456485551e-05
+                jobs_400m: 0.024384719973790363
+                nonres_occupancy_3000m: 0.25664180525649893
+                np.log1p(stories): 0.42025441052929463
+                year_built: 0.0015625160934621715
+            Std. Error:
+                I(year_built < 1940)[T.True]: 0.28281556359978244
+                I(year_built > 2005)[T.True]: 0.030744524128526934
+                Intercept: 1.4155974247013805
+                distance_to_coast: 4.421394042970478e-07
+                distance_to_freeway: 1.8476770109901323e-06
+                jobs_400m: 0.006856831605726695
+                nonres_occupancy_3000m: 0.03327709040534282
+                np.log1p(stories): 0.04141855102468543
+                year_built: 0.0007145798920031316
+            T-Score:
+                I(year_built < 1940)[T.True]: 2.4571378138510687
+                I(year_built > 2005)[T.True]: 3.9754249354341415
+                Intercept: -0.7013537991432567
+                distance_to_coast: -11.448199688791954
+                distance_to_freeway: -6.92360373614773
+                jobs_400m: 3.556266418067597
+                nonres_occupancy_3000m: 7.712266971973418
+                np.log1p(stories): 10.146526137015833
+                year_built: 2.1866219732017367
+        fit_rsquared: 0.2091005478515744
+        fit_rsquared_adj: 0.20561064403624763
+        fitted: true
+        model_expression: np.log1p(nonres_rent_per_sqft) ~ I(year_built < 1940) +
+            I(year_built > 2005) + np.log1p(stories) + jobs_400m + year_built + distance_to_coast
+            + distance_to_freeway + nonres_occupancy_3000m
+        name: *id001
+    &id002 !!python/long '4':
+        fit_parameters:
+            Coefficient:
+                I(year_built < 1940)[T.True]: 0.1954072905051293
+                I(year_built > 2005)[T.True]: 0.12054479197239912
+                Intercept: -12.571404640566127
+                ave_income: 0.007054628317230196
+                distance_to_coast: -5.998660335188129e-06
+                jobs_400m: 0.010779213996211425
+                nonres_occupancy_3000m: 0.009866812957048523
+                np.log1p(stories): 0.09906327801837082
+                year_built: 0.007821198406513004
+            Std. Error:
+                I(year_built < 1940)[T.True]: 0.1365118417767057
+                I(year_built > 2005)[T.True]: 0.048965720157011026
+                Intercept: 1.7731129595584905
+                ave_income: 0.003405169393027795
+                distance_to_coast: 6.015521944995808e-07
+                jobs_400m: 0.008565882328286112
+                nonres_occupancy_3000m: 0.051998350182779984
+                np.log1p(stories): 0.022840054067804642
+                year_built: 0.0008935371633158118
+            T-Score:
+                I(year_built < 1940)[T.True]: 1.4314310609387257
+                I(year_built > 2005)[T.True]: 2.461820056681822
+                Intercept: -7.090019038435339
+                ave_income: 2.0717407867211532
+                distance_to_coast: -9.971969830778017
+                jobs_400m: 1.2583892216936585
+                nonres_occupancy_3000m: 0.18975242334354028
+                np.log1p(stories): 4.337261099482706
+                year_built: 8.753075672297111
+        fit_rsquared: 0.2215206468087384
+        fit_rsquared_adj: 0.2154683291940347
+        fitted: true
+        model_expression: np.log1p(nonres_rent_per_sqft) ~ I(year_built < 1940) +
+            I(year_built > 2005) + np.log1p(stories) + ave_income + jobs_400m + year_built
+            + distance_to_coast + nonres_occupancy_3000m
+        name: *id002
+    &id003 !!python/long '5':
+        fit_parameters:
+            Coefficient:
+                I(year_built < 1940)[T.True]: 0.13825462615203074
+                I(year_built > 2005)[T.True]: 0.20893121844949844
+                Intercept: -4.547280808013042
+                ave_income: 0.052179328656994206
+                distance_to_coast: -5.443673323988721e-06
+                jobs_1500m: 0.03936094701654106
+                nonres_occupancy_3000m: 0.23138453117222213
+                year_built: 0.003397917407465473
+            Std. Error:
+                I(year_built < 1940)[T.True]: 0.07134307694508313
+                I(year_built > 2005)[T.True]: 0.06466885712423473
+                Intercept: 1.4845745008215354
+                ave_income: 0.006332263599581855
+                distance_to_coast: 5.792013319289031e-07
+                jobs_1500m: 0.01009865833850055
+                nonres_occupancy_3000m: 0.05392804293196613
+                year_built: 0.0007459201485658458
+            T-Score:
+                I(year_built < 1940)[T.True]: 1.9378842639272944
+                I(year_built > 2005)[T.True]: 3.230785694080269
+                Intercept: -3.063019609656951
+                ave_income: 8.240233186192663
+                distance_to_coast: -9.398585645270808
+                jobs_1500m: 3.8976412209609794
+                nonres_occupancy_3000m: 4.2906161357297785
+                year_built: 4.555336672428716
+        fit_rsquared: 0.1600682009095814
+        fit_rsquared_adj: 0.1557162226759523
+        fitted: true
+        model_expression: np.log1p(nonres_rent_per_sqft) ~ I(year_built < 1940) +
+            I(year_built > 2005) + ave_income + jobs_1500m + year_built + distance_to_coast
+            + nonres_occupancy_3000m
+        name: *id003
+
+fitted: true
