@@ -1,7 +1,6 @@
 import os
 import cStringIO
 
-import psycopg2
 import numpy as np
 import pandas as pd
 import pandas.io.sql as sql
