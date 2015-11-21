@@ -18,10 +18,6 @@ Put the contents of the following zip file into the data directory:
 
 2.)  pip install pandana
 
-3.)  git clone https://github.com/udst/urbansim
-cd urbansim
-python setup.py develop
+3.)  git clone https://github.com/udst/urbansim; cd urbansim; python setup.py develop
 
-4.)  git clone https://github.com/udst/urbansim_defaults
-cd urbansim_defaults
-python setup.py develop
+4.)  git clone https://github.com/udst/urbansim_defaults; cd urbansim_defaults; python setup.py develop
