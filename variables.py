@@ -140,7 +140,7 @@ def is_retail(buildings):
 @orca.column('buildings', 'job_spaces', cache=True, cache_scope='iteration')
 def job_spaces():
     store = orca.get_injectable('store')
-    b = orca.get_table('buildings').to_frame(['luz_id', 'development_type_id','non_residential_sqft'])
+    b = orca.get_table('buildings').to_frame(['luz_id', 'development_type_id','non_residential_sqft', 'year_built'])
     bsqft_job = store['building_sqft_per_job']
     merged = pd.merge(b.reset_index(), bsqft_job, left_on = ['luz_id', 'development_type_id'], right_on = ['luz_id', 'development_type_id'])
     merged = merged.set_index('building_id')
@@ -148,7 +148,10 @@ def job_spaces():
     merged['job_spaces'] = np.ceil(merged.non_residential_sqft / merged.sqft_per_emp)
     job_spaces = pd.Series(merged.job_spaces, index = b.index)
     b['job_spaces'] = job_spaces
+    b.job_spaces[(b.luz_id <17)&(b.year_built<2013)] = np.ceil(b.job_spaces[(b.luz_id <17)&(b.year_built<2013)]/10.0)
+    b.job_spaces[(b.job_spaces > 2000)&(b.year_built<2013)] = 2000
     b.job_spaces[b.job_spaces.isnull()] = np.ceil(b.non_residential_sqft/200.0)
+    b.job_spaces[b.year_built < 2013] = np.ceil(b.job_spaces[b.year_built < 2013]/3.25)
     return b.job_spaces
 
 @orca.column('buildings', 'luz_id')

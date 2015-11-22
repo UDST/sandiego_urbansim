@@ -61,23 +61,16 @@ feasibility:
 
 
 residential_developer:
-  target_vacancy: .15
+  target_vacancy: .12
   min_unit_size: 1000
   bldg_sqft_per_job: 400
 
 
 non_residential_developer:
-  target_vacancy: .9
+  target_vacancy: .21
   bldg_sqft_per_job: 400
 
 scenario: baseline
-
-
-scenario_inputs:
-  baseline:
-    zoning_table_name: zoning_baseline
-  test:
-    zoning_table_name: zoning_test
 
 
 # this maps building "forms" from the developer model
