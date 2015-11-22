@@ -29,541 +29,541 @@ models:
     &id001 !!python/long '1':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.3076200552331114
-                is_office: 1.752035217536492
-                is_retail: 1.0864849743945963
-                jobs1: 1.7700751437403675
-                jobs_800m: 0.15557246228053467
+                ave_parcel_size: 1.2762482987009771
+                is_office: 2.109295481753821
+                is_retail: 1.392161680508913
+                jobs1: 1.7975365051414047
+                jobs_800m: 0.12803846841913868
             Std. Error:
-                ave_parcel_size: 0.039437106012120034
-                is_office: 0.30846120467176413
-                is_retail: 0.16250454518497087
-                jobs1: 0.03766254386369178
-                jobs_800m: 0.025860989444557062
+                ave_parcel_size: 0.03171250718083306
+                is_office: 0.2996963620936438
+                is_retail: 0.16235671730229856
+                jobs1: 0.038158574876477364
+                jobs_800m: 0.026550144893636368
             T-Score:
-                ave_parcel_size: 33.157099682498156
-                is_office: 5.67992081662537
-                is_retail: 6.685874374516136
-                jobs1: 46.99828960429813
-                jobs_800m: 6.015719646538035
+                ave_parcel_size: 40.24432036935691
+                is_office: 7.038108394171117
+                is_retail: 8.57470946469551
+                jobs1: 47.10701358633511
+                jobs_800m: 4.82251486506303
         fitted: true
         log_likelihoods:
-            convergence: -1067.3182341636443
+            convergence: -1079.614526091039
             'null': -4605.17018598815
-            ratio: 0.7682347902340062
+            ratio: 0.7655646843680367
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs1
         name: *id001
     &id002 !!python/long '2':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.4404453841110825
-                is_office: 1.5280799086617345
-                is_retail: 2.210911977724113
+                ave_parcel_size: 1.2817099869170252
+                is_office: 2.3649497827298793
+                is_retail: 1.2434349306529755
                 jobs2: 3.0
-                jobs_800m: 0.8102788238441057
+                jobs_800m: 0.5694503120172111
             Std. Error:
-                ave_parcel_size: 0.1233696782278282
-                is_office: 0.5611749642762185
-                is_retail: 0.5743759704353792
-                jobs2: 0.17257231387706223
-                jobs_800m: 0.07918712719237632
+                ave_parcel_size: 0.2307075187642896
+                is_office: 1.0438648500666707
+                is_retail: 0.5424459481461109
+                jobs2: 0.23412183780848858
+                jobs_800m: 0.10184962078135329
             T-Score:
-                ave_parcel_size: 11.675846162547295
-                is_office: 2.723000857018973
-                is_retail: 3.849241771114194
-                jobs2: 17.384016778827874
-                jobs_800m: 10.232456367253018
+                ave_parcel_size: 5.555562271147864
+                is_office: 2.26557085678173
+                is_retail: 2.292274345310529
+                jobs2: 12.813840981608887
+                jobs_800m: 5.591089172925684
         fitted: true
         log_likelihoods:
-            convergence: -49.372351205184906
+            convergence: -44.38821438799552
             'null': -1082.2149937071983
-            ratio: 0.9543784261978697
+            ratio: 0.958983922190968
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs2
         name: *id002
     &id003 !!python/long '3':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.3110772486466686
-                is_office: 1.298894088869077
-                is_retail: 0.6746048251619935
-                jobs3: 1.6920128932272525
-                jobs_800m: 0.23308466375931425
+                ave_parcel_size: 1.1793221897770738
+                is_office: 1.4462723334835033
+                is_retail: 0.9672257214787556
+                jobs3: 1.6055559604295724
+                jobs_800m: 0.16676995749962223
             Std. Error:
-                ave_parcel_size: 0.09441513399423354
-                is_office: 0.23839041439570394
-                is_retail: 0.20501560420138676
-                jobs3: 0.050422763495632836
-                jobs_800m: 0.034682929643285926
+                ave_parcel_size: 0.06883283992227159
+                is_office: 0.22695866521809727
+                is_retail: 0.18621023232557013
+                jobs3: 0.051772725470525305
+                jobs_800m: 0.03489718869903543
             T-Score:
-                ave_parcel_size: 13.886303955536867
-                is_office: 5.448600322968709
-                is_retail: 3.290504777867198
-                jobs3: 33.55652835993012
-                jobs_800m: 6.720443346527844
+                ave_parcel_size: 17.133132834687704
+                is_office: 6.372404120784282
+                is_retail: 5.194267304213752
+                jobs3: 31.011617523277394
+                jobs_800m: 4.778893765280062
         fitted: true
         log_likelihoods:
-            convergence: -408.6876269744454
+            convergence: -462.474226980133
             'null': -4605.17018598815
-            ratio: 0.911254609391433
+            ratio: 0.8995749976000293
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs3
         name: *id003
     &id004 !!python/long '4':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.1376057122629983
-                is_office: 1.5885830469635722
-                is_retail: 1.1450896217063031
-                jobs4: 1.312206633186292
-                jobs_800m: 0.0477731596054681
+                ave_parcel_size: 1.2496785738526541
+                is_office: 1.4620104756431382
+                is_retail: 1.0873214481585267
+                jobs4: 1.3341801723276887
+                jobs_800m: 0.053528501570072426
             Std. Error:
-                ave_parcel_size: 0.04156889972252739
-                is_office: 0.14592898890914863
-                is_retail: 0.08815013049669554
-                jobs4: 0.04139733249065146
-                jobs_800m: 0.033307820985509516
+                ave_parcel_size: 0.046147452987068564
+                is_office: 0.14263371504525946
+                is_retail: 0.0940354569994564
+                jobs4: 0.0432558370163301
+                jobs_800m: 0.03459398955583497
             T-Score:
-                ave_parcel_size: 27.366750620211793
-                is_office: 10.886000505030431
-                is_retail: 12.990220380322963
-                jobs4: 31.697854770778303
-                jobs_800m: 1.434292553279054
+                ave_parcel_size: 27.080120200844863
+                is_office: 10.25010443834562
+                is_retail: 11.562887902643068
+                jobs4: 30.84393377531925
+                jobs_800m: 1.5473353104786314
         fitted: true
         log_likelihoods:
-            convergence: -1912.8344802291278
+            convergence: -1822.4067303660686
             'null': -4605.17018598815
-            ratio: 0.5846332702211128
+            ratio: 0.6042694066093395
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs4
         name: *id004
     &id005 !!python/long '5':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 0.9807758483304585
-                is_office: 0.6511706098572417
-                is_retail: 0.24295702116785867
-                jobs5: 1.1908665053182403
-                jobs_800m: 0.19795827311588476
+                ave_parcel_size: 1.1043174681834176
+                is_office: 0.960373651513483
+                is_retail: 0.1864924062894885
+                jobs5: 1.186104744175763
+                jobs_800m: 0.26628628680315475
             Std. Error:
-                ave_parcel_size: 0.05437463075269984
-                is_office: 0.1596518557517667
-                is_retail: 0.16381614792220525
-                jobs5: 0.05069933046003731
-                jobs_800m: 0.04485206817486439
+                ave_parcel_size: 0.059071476727785635
+                is_office: 0.15779442275068398
+                is_retail: 0.1552804284826981
+                jobs5: 0.05067846428131414
+                jobs_800m: 0.0442532184637155
             T-Score:
-                ave_parcel_size: 18.037379468213867
-                is_office: 4.078691141991539
-                is_retail: 1.4831078880162454
-                jobs5: 23.48880142030507
-                jobs_800m: 4.413581829584903
+                ave_parcel_size: 18.69459728038213
+                is_office: 6.086233180946316
+                is_retail: 1.201003939207111
+                jobs5: 23.40451237021988
+                jobs_800m: 6.017331530846522
         fitted: true
         log_likelihoods:
-            convergence: -1186.1073856275327
+            convergence: -1126.6997534991463
             'null': -4605.17018598815
-            ratio: 0.7424400537386383
+            ratio: 0.7553402571467864
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs5
         name: *id005
     &id006 !!python/long '6':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.141559024668934
-                is_office: 0.9807811453641172
-                is_retail: 0.6263313623432336
-                jobs6: 1.298903332340022
-                jobs_800m: 0.12814347847779967
+                ave_parcel_size: 1.2079098780321678
+                is_office: 1.1433875102027147
+                is_retail: 0.8642659812671595
+                jobs6: 1.344555643255124
+                jobs_800m: 0.09204307086581492
             Std. Error:
-                ave_parcel_size: 0.0470863599355321
-                is_office: 0.1340781252108763
-                is_retail: 0.11189246411596535
-                jobs6: 0.048314390573172696
-                jobs_800m: 0.03634282992544632
+                ave_parcel_size: 0.040973311758087994
+                is_office: 0.1327644507516796
+                is_retail: 0.10787185553710361
+                jobs6: 0.047113066151827136
+                jobs_800m: 0.03514550593219294
             T-Score:
-                ave_parcel_size: 24.243942964202162
-                is_office: 7.3149974600372545
-                is_retail: 5.597618814562023
-                jobs6: 26.884398559737978
-                jobs_800m: 3.525963133324323
+                ave_parcel_size: 29.480406298710538
+                is_office: 8.612151097143371
+                is_retail: 8.011969173644987
+                jobs6: 28.538911878970957
+                jobs_800m: 2.6189143796477365
         fitted: true
         log_likelihoods:
-            convergence: -1609.0397723276585
+            convergence: -1575.2175205535248
             'null': -4605.17018598815
-            ratio: 0.650601452857621
+            ratio: 0.6579458615131453
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs6
         name: *id006
     &id007 !!python/long '7':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.1791431541022666
-                is_office: 1.6948703755891728
-                is_retail: 2.4360850679204176
-                jobs7: 0.8886955197696862
-                jobs_800m: 0.27857976807363505
+                ave_parcel_size: 1.281595156825973
+                is_office: 1.7959521996463488
+                is_retail: 2.461488930124635
+                jobs7: 0.7896196657620028
+                jobs_800m: 0.3666540556153564
             Std. Error:
-                ave_parcel_size: 0.048219076303814716
-                is_office: 0.14466360169184803
-                is_retail: 0.08377498503866393
-                jobs7: 0.05280012035046549
-                jobs_800m: 0.0429072168954342
+                ave_parcel_size: 0.049166049972148004
+                is_office: 0.14993982600601283
+                is_retail: 0.08483827473619192
+                jobs7: 0.05022426551876496
+                jobs_800m: 0.04030740913727449
             T-Score:
-                ave_parcel_size: 24.45387270948162
-                is_office: 11.715942059837992
-                is_retail: 29.078907824288034
-                jobs7: 16.83131617638162
-                jobs_800m: 6.492608661907387
+                ave_parcel_size: 26.06666912538188
+                is_office: 11.97781968597408
+                is_retail: 29.013896590645384
+                jobs7: 15.721875822494258
+                jobs_800m: 9.096443146882669
         fitted: true
         log_likelihoods:
-            convergence: -1868.3278392631119
+            convergence: -1844.9997850403233
             'null': -4605.17018598815
-            ratio: 0.5942977645109075
+            ratio: 0.599363387122156
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs7
         name: *id007
     &id008 !!python/long '8':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.3680087946489423
-                is_office: 0.335064830463569
-                is_retail: 0.6211420828070326
-                jobs8: 1.3454824704386263
-                jobs_800m: 0.21788501452261722
+                ave_parcel_size: 1.2690165299865337
+                is_office: 0.6995620925209702
+                is_retail: 0.5692214505955222
+                jobs8: 1.390210804572643
+                jobs_800m: 0.18134633192215624
             Std. Error:
-                ave_parcel_size: 0.047618913013109804
-                is_office: 0.18242542677785886
-                is_retail: 0.10951600559699994
-                jobs8: 0.04241854634186508
-                jobs_800m: 0.029196444357809277
+                ave_parcel_size: 0.0409886698714983
+                is_office: 0.1680287349361823
+                is_retail: 0.11090980358235396
+                jobs8: 0.04047445642763294
+                jobs_800m: 0.028195750986373478
             T-Score:
-                ave_parcel_size: 28.728265894526412
-                is_office: 1.8367221959227238
-                is_retail: 5.671701404931884
-                jobs8: 31.71920271842742
-                jobs_800m: 7.46272429109467
+                ave_parcel_size: 30.960178360629147
+                is_office: 4.163347970135379
+                is_retail: 5.132291575765507
+                jobs8: 34.34785608691981
+                jobs_800m: 6.4316900801754775
         fitted: true
         log_likelihoods:
-            convergence: -1328.0840199033667
+            convergence: -1320.6885229561767
             'null': -4605.17018598815
-            ratio: 0.7116102193260434
+            ratio: 0.7132161310835918
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs8
         name: *id008
     &id009 !!python/long '9':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.3212647810283606
-                is_office: 1.5256835030901734
-                is_retail: 1.0315432299213676
-                jobs9: 1.2253082074326747
-                jobs_800m: 0.29352398935077995
+                ave_parcel_size: 1.2000995304761812
+                is_office: 1.6710272968340811
+                is_retail: 1.0393545235686183
+                jobs9: 1.1781355810612073
+                jobs_800m: 0.26384090966495943
             Std. Error:
-                ave_parcel_size: 0.04983208677390103
-                is_office: 0.12880439351356002
-                is_retail: 0.1278944592652465
-                jobs9: 0.04614964944348556
-                jobs_800m: 0.03389275902004159
+                ave_parcel_size: 0.04434730753471459
+                is_office: 0.123910414119814
+                is_retail: 0.11960796785510995
+                jobs9: 0.0450404372446329
+                jobs_800m: 0.0331585841890094
             T-Score:
-                ave_parcel_size: 26.514337780459105
-                is_office: 11.844964767677396
-                is_retail: 8.065581854347577
-                jobs9: 26.55075872099908
-                jobs_800m: 8.660374600285929
+                ave_parcel_size: 27.06138426863359
+                is_office: 13.485769607857957
+                is_retail: 8.689676300057751
+                jobs9: 26.157285611200322
+                jobs_800m: 7.956941350723019
         fitted: true
         log_likelihoods:
-            convergence: -1007.1492761854527
+            convergence: -1079.6852820298893
             'null': -4605.17018598815
-            ratio: 0.7813003134499046
+            ratio: 0.7655493199111344
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs9
         name: *id009
     &id010 !!python/long '10':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.3670967239458505
-                is_office: 2.183441201915209
-                is_retail: 1.7322334180100274
-                jobs10: 1.0535569778529874
-                jobs_800m: 0.18566279526482454
+                ave_parcel_size: 1.276099194810104
+                is_office: 2.6330553070643647
+                is_retail: 1.9479540367150716
+                jobs10: 1.068350139198591
+                jobs_800m: 0.19903277551763626
             Std. Error:
-                ave_parcel_size: 0.0665524366643858
-                is_office: 0.11263384325958517
-                is_retail: 0.09912919511569132
-                jobs10: 0.04727232871166084
-                jobs_800m: 0.034244474833879573
+                ave_parcel_size: 0.05645019706986322
+                is_office: 0.11399451971441173
+                is_retail: 0.09998055747279039
+                jobs10: 0.04863641739043504
+                jobs_800m: 0.03448117947216605
             T-Score:
-                ave_parcel_size: 20.541647946564588
-                is_office: 19.385303197752666
-                is_retail: 17.4745030057833
-                jobs10: 22.2869701274755
-                jobs_800m: 5.421686160044135
+                ave_parcel_size: 22.605752699690193
+                is_office: 23.09808676470507
+                is_retail: 19.483328418579838
+                jobs10: 21.966053350975137
+                jobs_800m: 5.772214830362743
         fitted: true
         log_likelihoods:
-            convergence: -1384.8138415920728
+            convergence: -1323.1745273589554
             'null': -4605.17018598815
-            ratio: 0.6992914950666633
+            ratio: 0.7126763020865348
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs10
         name: *id010
     &id011 !!python/long '11':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.2399218293415575
-                is_office: 1.7982360095836263
-                is_retail: 1.4859932287333963
-                jobs11: 1.267825738061206
-                jobs_800m: 0.12117620709112834
+                ave_parcel_size: 1.274866122074155
+                is_office: 2.0017304005180514
+                is_retail: 1.6149197824280979
+                jobs11: 1.088003566094969
+                jobs_800m: 0.19050802327773572
             Std. Error:
-                ave_parcel_size: 0.04785824475553748
-                is_office: 0.10752942959796342
-                is_retail: 0.08902798904856135
-                jobs11: 0.047634803530517945
-                jobs_800m: 0.031114086453465018
+                ave_parcel_size: 0.060383892592481496
+                is_office: 0.10291230576322073
+                is_retail: 0.08863965021927127
+                jobs11: 0.045475748708146205
+                jobs_800m: 0.030071844000909783
             T-Score:
-                ave_parcel_size: 25.908217814404722
-                is_office: 16.723198628570465
-                is_retail: 16.691303988938177
-                jobs11: 26.615534107303592
-                jobs_800m: 3.894577051855995
+                ave_parcel_size: 21.112685309606736
+                is_office: 19.450836182055877
+                is_retail: 18.21893225473261
+                jobs11: 23.92491815973272
+                jobs_800m: 6.335096154129164
         fitted: true
         log_likelihoods:
-            convergence: -1873.6303187395456
+            convergence: -1907.5842014305674
             'null': -4605.17018598815
-            ratio: 0.5931463457223973
+            ratio: 0.5857733537764469
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs11
         name: *id011
     &id012 !!python/long '12':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.1990507037589826
-                is_office: 1.592258197324373
-                is_retail: 0.9567921301786865
-                jobs12: 0.9519330014466256
-                jobs_800m: 0.30798771626608895
+                ave_parcel_size: 1.25719349092977
+                is_office: 1.9521968828766054
+                is_retail: 0.9982970943953512
+                jobs12: 0.8076152763526864
+                jobs_800m: 0.38444804669618327
             Std. Error:
-                ave_parcel_size: 0.03432050776228134
-                is_office: 0.11156430179500754
-                is_retail: 0.1171108384186405
-                jobs12: 0.05331409324639467
-                jobs_800m: 0.045343275154108444
+                ave_parcel_size: 0.03900423396297787
+                is_office: 0.11240178801979886
+                is_retail: 0.1095721818102688
+                jobs12: 0.047271883609827245
+                jobs_800m: 0.039115589110153996
             T-Score:
-                ave_parcel_size: 34.936857929495844
-                is_office: 14.272111882616793
-                is_retail: 8.169970799443906
-                jobs12: 17.85518506424189
-                jobs_800m: 6.792357085352334
+                ave_parcel_size: 32.232231303993196
+                is_office: 17.368023385292933
+                is_retail: 9.110862610402028
+                jobs12: 17.084474209206107
+                jobs_800m: 9.828512249004696
         fitted: true
         log_likelihoods:
-            convergence: -1286.567506801522
+            convergence: -1335.7009540449326
             'null': -4605.17018598815
-            ratio: 0.7206254156000408
+            ratio: 0.7099562230926921
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs12
         name: *id012
     &id013 !!python/long '13':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.0185801231566363
-                is_office: 1.4702128662054106
-                is_retail: 0.9847940092109377
-                jobs13: 1.3646052940226092
-                jobs_800m: 0.14996014089625584
+                ave_parcel_size: 0.9731042755357158
+                is_office: 1.384628894318905
+                is_retail: 0.7985195345460377
+                jobs13: 1.3639647961605574
+                jobs_800m: 0.2469942300333187
             Std. Error:
-                ave_parcel_size: 0.09109675901046178
-                is_office: 0.14292374481744177
-                is_retail: 0.15952647367351916
-                jobs13: 0.05786660727224951
-                jobs_800m: 0.03962796516822407
+                ave_parcel_size: 0.059119342227084766
+                is_office: 0.17100477792896693
+                is_retail: 0.15984957704653094
+                jobs13: 0.05285864297156763
+                jobs_800m: 0.036163748619093404
             T-Score:
-                ave_parcel_size: 11.181299249511829
-                is_office: 10.286694265416367
-                is_retail: 6.173232483195108
-                jobs13: 23.581912926093022
-                jobs_800m: 3.7841998765180684
+                ave_parcel_size: 16.45999835041975
+                is_office: 8.097018756365165
+                is_retail: 4.995443524467976
+                jobs13: 25.804007055085137
+                jobs_800m: 6.829884607231037
         fitted: true
         log_likelihoods:
-            convergence: -669.8186393507798
+            convergence: -619.0041789727745
             'null': -4605.17018598815
-            ratio: 0.8545507305270078
+            ratio: 0.8655849503985372
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs13
         name: *id013
     &id014 !!python/long '14':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.1632032268395447
-                is_office: 1.6463794359320203
-                is_retail: 1.2493012721801113
-                jobs14: 1.1998275271997425
-                jobs_800m: 0.11433888528918694
+                ave_parcel_size: 1.203585189084483
+                is_office: 1.471363913652545
+                is_retail: 1.06594850863933
+                jobs14: 1.145075171004943
+                jobs_800m: 0.14226264365141175
             Std. Error:
-                ave_parcel_size: 0.06027328606467402
-                is_office: 0.10709559498898054
-                is_retail: 0.09504099682652824
-                jobs14: 0.04784813425784917
-                jobs_800m: 0.03742561129153619
+                ave_parcel_size: 0.05595503246211958
+                is_office: 0.10750083968431584
+                is_retail: 0.09656266578485187
+                jobs14: 0.045166442170286134
+                jobs_800m: 0.03450121919474252
             T-Score:
-                ave_parcel_size: 19.29881880990216
-                is_office: 15.37298930083373
-                is_retail: 13.144867098357297
-                jobs14: 25.075743198971622
-                jobs_800m: 3.0550973342430003
+                ave_parcel_size: 21.509864906240306
+                is_office: 13.686999264129598
+                is_retail: 11.038930004421536
+                jobs14: 25.352343819506313
+                jobs_800m: 4.123409171380543
         fitted: true
         log_likelihoods:
-            convergence: -1652.8820788615117
+            convergence: -1719.947512626416
             'null': -4605.17018598815
-            ratio: 0.6410812169568395
+            ratio: 0.6265181430515667
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs14
         name: *id014
     &id015 !!python/long '15':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.1862672447274785
-                is_office: 1.035292591182649
-                is_retail: 0.17351596546237225
-                jobs15: 1.1273759886867594
-                jobs_800m: 0.3397747646437872
+                ave_parcel_size: 1.371555939978746
+                is_office: 1.1757989104114934
+                is_retail: 0.6540228268127014
+                jobs15: 1.1344721043195412
+                jobs_800m: 0.24924320655271684
             Std. Error:
-                ave_parcel_size: 0.03516263581987291
-                is_office: 0.15292230771046297
-                is_retail: 0.1299662854393419
-                jobs15: 0.03695158585878961
-                jobs_800m: 0.032928867031514514
+                ave_parcel_size: 0.040145096165389485
+                is_office: 0.14275548897774223
+                is_retail: 0.11744713351288373
+                jobs15: 0.03543258488126193
+                jobs_800m: 0.0321400745551488
             T-Score:
-                ave_parcel_size: 33.73658478859069
-                is_office: 6.770056028338461
-                is_retail: 1.335084440367082
-                jobs15: 30.50954275670397
-                jobs_800m: 10.31844686058
+                ave_parcel_size: 34.164968352005424
+                is_office: 8.236453244854342
+                is_retail: 5.568657209849709
+                jobs15: 32.01776297499233
+                jobs_800m: 7.754904430138865
         fitted: true
         log_likelihoods:
-            convergence: -1879.920684439235
+            convergence: -1954.5046459007995
             'null': -4605.17018598815
-            ratio: 0.591780410166133
+            ratio: 0.5755847087155121
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs15
         name: *id015
     &id016 !!python/long '16':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.2545414835860587
-                is_office: 1.8397452608200684
-                is_retail: 1.0356142372372084
-                jobs16: 1.0554358879426708
-                jobs_800m: 0.2999323923660417
+                ave_parcel_size: 1.275763629014068
+                is_office: 1.9590715171281496
+                is_retail: 1.0061817753073263
+                jobs16: 1.0182333145974367
+                jobs_800m: 0.3376428776568917
             Std. Error:
-                ave_parcel_size: 0.05228185116329407
-                is_office: 0.10560033087428539
-                is_retail: 0.1010360252839165
-                jobs16: 0.040228572929815125
-                jobs_800m: 0.03788153624457809
+                ave_parcel_size: 0.049775252616262575
+                is_office: 0.10467740727730945
+                is_retail: 0.10467840070531227
+                jobs16: 0.039189347496460365
+                jobs_800m: 0.036992871770231944
             T-Score:
-                ave_parcel_size: 23.995735722281474
-                is_office: 17.421775534114946
-                is_retail: 10.249950295719554
-                jobs16: 26.235976349050205
-                jobs_800m: 7.917640679342049
+                ave_parcel_size: 25.630480247874228
+                is_office: 18.715323278290736
+                is_retail: 9.612124072662338
+                jobs16: 25.982400311447005
+                jobs_800m: 9.127241587353376
         fitted: true
         log_likelihoods:
-            convergence: -1763.612062588082
+            convergence: -1692.6789945270655
             'null': -4605.17018598815
-            ratio: 0.6170365064999966
+            ratio: 0.6324394265216801
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs16
         name: *id016
     &id017 !!python/long '17':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.1226716273353914
-                is_office: 1.8880828264741574
-                is_retail: 1.641291958357898
-                jobs17: 1.5945471643530829
-                jobs_800m: -0.04475299800020017
+                ave_parcel_size: 1.2688183855189346
+                is_office: 1.6922995854478666
+                is_retail: 1.5599302777156256
+                jobs17: 1.6280634136421896
+                jobs_800m: -0.04209873875256866
             Std. Error:
-                ave_parcel_size: 0.048657508159721294
-                is_office: 0.16090605585399828
-                is_retail: 0.11513411283727323
-                jobs17: 0.04202554098118843
-                jobs_800m: 0.0291030443040033
+                ave_parcel_size: 0.045298634443390336
+                is_office: 0.1564880763232131
+                is_retail: 0.10759838717420854
+                jobs17: 0.04287815235801509
+                jobs_800m: 0.028714880556872758
             T-Score:
-                ave_parcel_size: 23.072937143639827
-                is_office: 11.734069401262012
-                is_retail: 14.255479265972596
-                jobs17: 37.942335235299836
-                jobs_800m: -1.5377428399833801
+                ave_parcel_size: 28.01008023993694
+                is_office: 10.814239814364914
+                is_retail: 14.497710594769424
+                jobs17: 37.96953282987858
+                jobs_800m: -1.4660948586983602
         fitted: true
         log_likelihoods:
-            convergence: -1231.8502880663393
+            convergence: -1267.4147244942124
             'null': -4605.17018598815
-            ratio: 0.7325071086809323
+            ratio: 0.7247843894346202
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs17
         name: *id017
     &id018 !!python/long '18':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.447141028343163
-                is_office: 1.3950933649409492
-                is_retail: 1.991302423996398
-                jobs18: 0.9499690746284526
-                jobs_800m: 0.270072818228992
+                ave_parcel_size: 1.35858943674722
+                is_office: 1.7018794710626333
+                is_retail: 2.007041576529376
+                jobs18: 0.8932065751574124
+                jobs_800m: 0.2718976091964847
             Std. Error:
-                ave_parcel_size: 0.043688119455242466
-                is_office: 0.12763728326110596
-                is_retail: 0.07965987875497825
-                jobs18: 0.04756124697587931
-                jobs_800m: 0.0422506690717033
+                ave_parcel_size: 0.04093178660280845
+                is_office: 0.12268075962278466
+                is_retail: 0.07844104616159321
+                jobs18: 0.04845163502810685
+                jobs_800m: 0.0422168879370854
             T-Score:
-                ave_parcel_size: 33.12436072753664
-                is_office: 10.930139919125546
-                is_retail: 24.997557805998465
-                jobs18: 19.97359478632319
-                jobs_800m: 6.392154826486969
+                ave_parcel_size: 33.19154988104046
+                is_office: 13.872423648952976
+                is_retail: 25.586624283347152
+                jobs18: 18.435014105081535
+                jobs_800m: 6.440493899069155
         fitted: true
         log_likelihoods:
-            convergence: -1885.5517544093925
+            convergence: -1960.7075125473823
             'null': -4605.17018598815
-            ratio: 0.5905576388585079
+            ratio: 0.5742377733372159
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs18
         name: *id018
     &id019 !!python/long '19':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.1596030281600496
-                is_office: 1.6713051169017075
-                is_retail: 1.8337257254550654
-                jobs19: 0.8539028009509755
-                jobs_800m: 0.24296312702338826
+                ave_parcel_size: 1.1738874869994531
+                is_office: 1.680155273496687
+                is_retail: 1.696809142303488
+                jobs19: 0.8123345252033266
+                jobs_800m: 0.28240407245829263
             Std. Error:
-                ave_parcel_size: 0.05866221318113726
-                is_office: 0.11620088403234474
-                is_retail: 0.07627815194235033
-                jobs19: 0.045249616808622044
-                jobs_800m: 0.03392970725901453
+                ave_parcel_size: 0.051339465201823836
+                is_office: 0.11035073513455726
+                is_retail: 0.07602093025030195
+                jobs19: 0.04227487042281286
+                jobs_800m: 0.03119823934211814
             T-Score:
-                ave_parcel_size: 19.76746128857133
-                is_office: 14.382895025450035
-                is_retail: 24.03998627078646
-                jobs19: 18.870939936628798
-                jobs_800m: 7.160778758526932
+                ave_parcel_size: 22.865206764127933
+                is_office: 15.225592031153875
+                is_retail: 22.320289119281703
+                jobs19: 19.21554145710557
+                jobs_800m: 9.05192339097939
         fitted: true
         log_likelihoods:
-            convergence: -2681.5143552456207
+            convergence: -2698.893291067193
             'null': -4605.17018598815
-            ratio: 0.4177165561862428
+            ratio: 0.413942768221913
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs19
         name: *id019
     &id020 !!python/long '20':
         fit_parameters:
             Coefficient:
-                ave_parcel_size: 1.2313353434230598
-                is_office: 0.9953396451276301
-                is_retail: 0.3917880825426743
-                jobs20: 1.0492527156802156
-                jobs_800m: 0.3916189131229164
+                ave_parcel_size: 1.297467695891008
+                is_office: 0.9134646151603341
+                is_retail: 0.3025615335476439
+                jobs20: 1.0854841605714025
+                jobs_800m: 0.4380120823345593
             Std. Error:
-                ave_parcel_size: 0.05332768023221772
-                is_office: 0.14061282888885746
-                is_retail: 0.11611995830830356
-                jobs20: 0.030910782866426026
-                jobs_800m: 0.025233860245351427
+                ave_parcel_size: 0.047616962368451504
+                is_office: 0.1381238152017406
+                is_retail: 0.1253697458435704
+                jobs20: 0.03178660218080397
+                jobs_800m: 0.02511707321990589
             T-Score:
-                ave_parcel_size: 23.089985127070147
-                is_office: 7.078583462070604
-                is_retail: 3.373994343870326
-                jobs20: 33.944553271728005
-                jobs_800m: 15.51958001332992
+                ave_parcel_size: 27.248014811432867
+                is_office: 6.613375208512361
+                is_retail: 2.413353648536257
+                jobs20: 34.14910956500188
+                jobs_800m: 17.4388185478324
         fitted: true
         log_likelihoods:
-            convergence: -1191.1177306207296
+            convergence: -1094.842566313549
             'null': -4605.17018598815
-            ratio: 0.7413520711471498
+            ratio: 0.7622579574486184
         model_expression: jobs_800m + ave_parcel_size + is_office + is_retail + jobs20
         name: *id020
 

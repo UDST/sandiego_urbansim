@@ -18,39 +18,39 @@ fitted: true
 
 fit_parameters:
     Coefficient:
-        I(year_built < 1940)[T.True]: 0.17216530512606193
-        I(year_built > 2005)[T.True]: 0.09601702918934418
-        Intercept: 0.21382740680108414
-        ave_income: 0.01855068962144618
-        distance_to_coast: -6.2586425789183165e-06
-        distance_to_freeway: -8.124920735130454e-06
-        jobs_400m: 0.012328981298994155
-        nonres_occupancy_3000m: 0.009195706917583965
-        np.log1p(stories): 0.32554351400710413
-        year_built: 0.0011280551460478014
+        I(year_built < 1940)[T.True]: 0.18327430131977965
+        I(year_built > 2005)[T.True]: 0.1235306335831911
+        Intercept: -0.6336401006856409
+        ave_income: 0.017247140695143624
+        distance_to_coast: -6.337436971768978e-06
+        distance_to_freeway: -3.2274226427877944e-06
+        jobs_400m: 0.01910790787448628
+        nonres_occupancy_3000m: -0.023461788922929338
+        np.log1p(stories): 0.3252128670742988
+        year_built: 0.0015588601639066168
     Std. Error:
-        I(year_built < 1940)[T.True]: 0.06635994461845551
-        I(year_built > 2005)[T.True]: 0.03139338437470765
-        Intercept: 1.0855058314913884
-        ave_income: 0.0018408370403579925
-        distance_to_coast: 3.8279569884014585e-07
-        distance_to_freeway: 1.7400998087226873e-06
-        jobs_400m: 0.0058871442600944655
-        nonres_occupancy_3000m: 0.031512774132608744
-        np.log1p(stories): 0.02112848088256832
-        year_built: 0.000547656216369481
+        I(year_built < 1940)[T.True]: 0.06584845521788375
+        I(year_built > 2005)[T.True]: 0.03133591238875012
+        Intercept: 1.0824303390043033
+        ave_income: 0.0018219741644053984
+        distance_to_coast: 3.6305992011933037e-07
+        distance_to_freeway: 1.832012168072984e-06
+        jobs_400m: 0.005515959219540755
+        nonres_occupancy_3000m: 0.00293829810588114
+        np.log1p(stories): 0.020970090325633035
+        year_built: 0.0005461534148970391
     T-Score:
-        I(year_built < 1940)[T.True]: 2.5944160459437855
-        I(year_built > 2005)[T.True]: 3.0585115654717727
-        Intercept: 0.19698411615836675
-        ave_income: 10.077312230657082
-        distance_to_coast: -16.34982471820276
-        distance_to_freeway: -4.66922684227781
-        jobs_400m: 2.0942210270886625
-        nonres_occupancy_3000m: 0.29180886706094356
-        np.log1p(stories): 15.407805029451412
-        year_built: 2.0597869837503118
+        I(year_built < 1940)[T.True]: 2.783274121060994
+        I(year_built > 2005)[T.True]: 3.942142550396577
+        Intercept: -0.5853864935719636
+        ave_income: 9.466182908676004
+        distance_to_coast: -17.455622668803517
+        distance_to_freeway: -1.7616818812849826
+        jobs_400m: 3.464113332599503
+        nonres_occupancy_3000m: -7.984822532461727
+        np.log1p(stories): 15.508415177247523
+        year_built: 2.8542532581261866
 
-fit_rsquared_adj: 0.18125240969865097
+fit_rsquared_adj: 0.1934533111398521
 
-fit_rsquared: 0.1829993817974448
+fit_rsquared: 0.19517425002077704
