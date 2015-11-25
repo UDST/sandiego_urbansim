@@ -11,10 +11,6 @@ Put the contents of the following zip file into the data directory:
 
 * https://dl.dropboxusercontent.com/u/69619688/sandag_data_11202015.zip
 
-Unzip the contents of the following zip file anywhere that is convenient (Minneapolis sample data):
-* http://bit.ly/1P30BNa
-
-
 ###Dependencies
 
 1.)  Install Anaconda python
