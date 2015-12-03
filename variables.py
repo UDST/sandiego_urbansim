@@ -23,6 +23,18 @@ def mgra_id(parcels, costar):
 def luz_id(parcels, costar):
     return misc.reindex(parcels.luz_id, costar.parcel_id)
     
+@orca.column('costar', 'zone_id')
+def zone_id(parcels, costar):
+    return misc.reindex(parcels.taz_id, costar.parcel_id)
+    
+@orca.column('costar', 'jobs_within_30_min')
+def jobs_within_30_min(costar, zones):
+    return misc.reindex(zones.jobs_within_30_min, costar.zone_id).fillna(0)
+    
+@orca.column('costar', 'population_within_15_min')
+def population_within_15_min(costar, zones):
+    return misc.reindex(zones.population_within_15_min, costar.zone_id).fillna(0)
+    
 @orca.column('costar', 'distance_to_coast')
 def distance_to_coast(parcels, costar):
     return misc.reindex(parcels.distance_to_coast, costar.parcel_id)
@@ -62,6 +74,18 @@ def mgra_id(parcels, assessor_transactions):
 @orca.column('assessor_transactions', 'luz_id')
 def luz_id(parcels, assessor_transactions):
     return misc.reindex(parcels.luz_id, assessor_transactions.parcel_id)
+    
+@orca.column('assessor_transactions', 'zone_id')
+def zone_id(parcels, assessor_transactions):
+    return misc.reindex(parcels.taz_id, assessor_transactions.parcel_id)
+    
+@orca.column('assessor_transactions', 'jobs_within_30_min')
+def jobs_within_30_min(assessor_transactions, zones):
+    return misc.reindex(zones.jobs_within_30_min, assessor_transactions.zone_id).fillna(0)
+    
+@orca.column('assessor_transactions', 'population_within_15_min')
+def population_within_15_min(assessor_transactions, zones):
+    return misc.reindex(zones.population_within_15_min, assessor_transactions.zone_id).fillna(0)
     
 @orca.column('assessor_transactions', 'distance_to_coast')
 def distance_to_coast(parcels, assessor_transactions):
@@ -171,12 +195,24 @@ def mgra_id(parcels, buildings):
     return misc.reindex(parcels.mgra_id, buildings.parcel_id)
     
 @orca.column('buildings', 'zone_id', cache=True, cache_scope='iteration')
-def zone_id(buildings):
-    return np.zeros(len(buildings))
+def zone_id(parcels, buildings):
+    return misc.reindex(parcels.taz_id, buildings.parcel_id)
     
 @orca.column('buildings', 'msa_id', cache=True, cache_scope='iteration')
 def msa_id(buildings, parcels):
     return misc.reindex(parcels.msa_id, buildings.parcel_id)
+    
+@orca.column('buildings', 'jobs_within_30_min', cache=True, cache_scope='step')
+def jobs_within_30_min(buildings, zones):
+    return misc.reindex(zones.jobs_within_30_min, buildings.zone_id).fillna(0)
+    
+@orca.column('buildings', 'population_within_30_min', cache=True, cache_scope='step')
+def population_within_30_min(buildings, zones):
+    return misc.reindex(zones.population_within_30_min, buildings.zone_id).fillna(0)
+    
+@orca.column('buildings', 'population_within_15_min', cache=True, cache_scope='step')
+def population_within_15_min(buildings, zones):
+    return misc.reindex(zones.population_within_15_min, buildings.zone_id).fillna(0)
     
 @orca.column('buildings', 'parcel_size', cache=True, cache_scope='iteration')
 def parcel_size(buildings):
@@ -253,6 +289,10 @@ def year_built_1980to1990(buildings):
 def luz_id(jobs, buildings):
     return misc.reindex(buildings.luz_id, jobs.building_id)
     
+@orca.column('jobs', 'zone_id', cache=True, cache_scope='step')
+def zone_id(jobs, buildings):
+    return misc.reindex(buildings.zone_id, jobs.building_id)
+    
 #####################
 # HOUSEHOLD VARIABLES
 #####################
@@ -264,6 +304,10 @@ def luz_id(households, buildings):
 @orca.column('households', 'mgra_id', cache=True, cache_scope='iteration')
 def mgra_id(households, buildings):
     return misc.reindex(buildings.mgra_id, households.building_id)
+    
+@orca.column('households', 'zone_id', cache=True, cache_scope='step')
+def zone_id(households, buildings):
+    return misc.reindex(buildings.zone_id, households.building_id)
     
 @orca.column('households', 'luz_id_households', cache=True, cache_scope='iteration')
 def luz_id_households(households, buildings):
@@ -289,6 +333,14 @@ def income_halves(households):
 #####################
 # PARCEL VARIABLES
 #####################
+
+@orca.column('parcels', 'jobs_within_30_min', cache=True, cache_scope='step')
+def jobs_within_30_min(parcels, zones):
+    return misc.reindex(zones.jobs_within_30_min, parcels.taz_id).fillna(0)
+    
+@orca.column('parcels', 'population_within_30_min', cache=True, cache_scope='step')
+def population_within_30_min(parcels, zones):
+    return misc.reindex(zones.population_within_30_min, parcels.taz_id).fillna(0)
         
 @orca.column('parcels', 'parcel_acres', cache=True)
 def parcel_acres(parcels):
@@ -411,3 +463,36 @@ def total_mfr_du(parcels, buildings):
 def newest_building(parcels, buildings):
     return buildings.year_built.groupby(buildings.parcel_id).max().\
         reindex(parcels.index).fillna(0)
+        
+#####################
+# ZONE VARIABLES
+#####################
+
+@orca.injectable('zone_ids', cache=True)
+def zone_ids(travel_data):
+    travel_data = travel_data.to_frame()
+    return np.unique(travel_data.reset_index().from_zone_id)
+
+@orca.column('zones', 'jobs_within_30_min', cache=True, cache_scope='step')
+def jobs_within_30_min(jobs, travel_data, zone_ids):
+    travel_data = travel_data.to_frame()
+    jobs = jobs.to_frame(columns = ['zone_id'])
+    return misc.compute_range(travel_data, jobs.groupby('zone_id').size().reindex(index = zone_ids).fillna(0),
+                                  "am_single_vehicle_to_work_travel_time",
+                                  30, agg=np.sum)
+                                  
+@orca.column('zones', 'population_within_30_min', cache=True, cache_scope='step')
+def population_within_30_min(households, travel_data, zone_ids):
+    travel_data = travel_data.to_frame()
+    households = households.to_frame(columns = ['persons', 'zone_id'])
+    return misc.compute_range(travel_data, households.groupby('zone_id').persons.sum().reindex(index = zone_ids).fillna(0),
+                                  "am_single_vehicle_to_work_travel_time",
+                                  30, agg=np.sum)
+                                  
+@orca.column('zones', 'population_within_15_min', cache=True, cache_scope='step')
+def population_within_15_min(households, travel_data, zone_ids):
+    travel_data = travel_data.to_frame()
+    households = households.to_frame(columns = ['persons', 'zone_id'])
+    return misc.compute_range(travel_data, households.groupby('zone_id').persons.sum().reindex(index = zone_ids).fillna(0),
+                                  "am_single_vehicle_to_work_travel_time",
+                                  15, agg=np.sum)

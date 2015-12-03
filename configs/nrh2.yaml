@@ -10,7 +10,8 @@ predict_filters:
 
 model_expression: np.log1p(nonres_rent_per_sqft) ~ I(year_built < 1940) + I(year_built
     > 2005) + np.log1p(stories) + ave_income + jobs_400m + year_built + distance_to_coast
-    + distance_to_freeway + nonres_occupancy_3000m
+    + distance_to_freeway + nonres_occupancy_3000m + np.log1p(jobs_within_30_min)
+    + np.log1p(population_within_15_min)
 
 ytransform: np.exp
 
@@ -18,39 +19,45 @@ fitted: true
 
 fit_parameters:
     Coefficient:
-        I(year_built < 1940)[T.True]: 0.18327430131977965
-        I(year_built > 2005)[T.True]: 0.1235306335831911
-        Intercept: -0.6336401006856409
-        ave_income: 0.017247140695143624
-        distance_to_coast: -6.337436971768978e-06
-        distance_to_freeway: -3.2274226427877944e-06
-        jobs_400m: 0.01910790787448628
-        nonres_occupancy_3000m: -0.023461788922929338
-        np.log1p(stories): 0.3252128670742988
-        year_built: 0.0015588601639066168
+        I(year_built < 1940)[T.True]: 0.19538140433906806
+        I(year_built > 2005)[T.True]: 0.1429008073831752
+        Intercept: 2.442681470861401
+        ave_income: 0.018745402479329192
+        distance_to_coast: -6.834902872352728e-06
+        distance_to_freeway: -1.631355550988222e-05
+        jobs_400m: 0.013258844893631848
+        nonres_occupancy_3000m: -0.02162881350101672
+        np.log1p(jobs_within_30_min): 0.04661966854128868
+        np.log1p(population_within_15_min): -0.17407410092428846
+        np.log1p(stories): 0.31593526416483947
+        year_built: 0.0008346430540712246
     Std. Error:
-        I(year_built < 1940)[T.True]: 0.06584845521788375
-        I(year_built > 2005)[T.True]: 0.03133591238875012
-        Intercept: 1.0824303390043033
-        ave_income: 0.0018219741644053984
-        distance_to_coast: 3.6305992011933037e-07
-        distance_to_freeway: 1.832012168072984e-06
-        jobs_400m: 0.005515959219540755
-        nonres_occupancy_3000m: 0.00293829810588114
-        np.log1p(stories): 0.020970090325633035
-        year_built: 0.0005461534148970391
+        I(year_built < 1940)[T.True]: 0.06485851775783105
+        I(year_built > 2005)[T.True]: 0.030843109258289394
+        Intercept: 1.1114184215156404
+        ave_income: 0.0018125788804948034
+        distance_to_coast: 3.8012652364427633e-07
+        distance_to_freeway: 2.158709513497045e-06
+        jobs_400m: 0.005706798153160394
+        nonres_occupancy_3000m: 0.002892393965460065
+        np.log1p(jobs_within_30_min): 0.011040550366306813
+        np.log1p(population_within_15_min): 0.01435760097297149
+        np.log1p(stories): 0.020662300020615795
+        year_built: 0.0005422092313039544
     T-Score:
-        I(year_built < 1940)[T.True]: 2.783274121060994
-        I(year_built > 2005)[T.True]: 3.942142550396577
-        Intercept: -0.5853864935719636
-        ave_income: 9.466182908676004
-        distance_to_coast: -17.455622668803517
-        distance_to_freeway: -1.7616818812849826
-        jobs_400m: 3.464113332599503
-        nonres_occupancy_3000m: -7.984822532461727
-        np.log1p(stories): 15.508415177247523
-        year_built: 2.8542532581261866
+        I(year_built < 1940)[T.True]: 3.0124247530383563
+        I(year_built > 2005)[T.True]: 4.633151806663888
+        Intercept: 2.197805456139838
+        ave_income: 10.34184094333705
+        distance_to_coast: -17.980599740387632
+        distance_to_freeway: -7.557086957686467
+        jobs_400m: 2.3233421855457026
+        nonres_occupancy_3000m: -7.477824168941121
+        np.log1p(jobs_within_30_min): 4.222585559100481
+        np.log1p(population_within_15_min): -12.124177378378667
+        np.log1p(stories): 15.290420904236957
+        year_built: 1.5393375949428205
 
-fit_rsquared_adj: 0.1934533111398521
+fit_rsquared_adj: 0.2207301655791537
 
-fit_rsquared: 0.19517425002077704
+fit_rsquared: 0.22276240080405396

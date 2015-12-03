@@ -12,6 +12,16 @@ def jobs(store):
     df = df[df.building_id > 0]
     return df
     
+@orca.table('travel_data', cache=True)
+def travel_data(store):
+    df = store['travel_data']
+    return df
+    
+@orca.table('zones', cache=True)
+def zones(travel_data):
+    df = pd.DataFrame(index = np.unique(travel_data.to_frame().reset_index().from_zone_id))
+    return df
+    
 @orca.table('fee_schedule', cache=True)
 def fee_schedule(store):
     df = store['fee_schedule']
