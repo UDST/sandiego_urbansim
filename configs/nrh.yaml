@@ -114,44 +114,48 @@ models:
     &id003 !!python/long '5':
         fit_parameters:
             Coefficient:
-                I(year_built < 1940)[T.True]: 0.1799910402869304
-                I(year_built > 2005)[T.True]: 0.17578482969690884
-                Intercept: -2.861828600909424
-                ave_income: 0.053648916926668844
-                distance_to_coast: -3.5950318325819842e-06
-                jobs_1500m: 0.053138075069478576
-                nonres_occupancy_3000m: -0.013351021793322851
-                np.log1p(jobs_within_30_min): 0.14815965145889973
-                np.log1p(population_within_15_min): -0.24139580290736284
-                year_built: 0.0030940107953488036
+                I(year_built < 1940)[T.True]: 0.1786411430382234
+                I(year_built > 2005)[T.True]: 0.17416738693365286
+                Intercept: -2.6491954630384105
+                ave_income: 0.05368627835594169
+                distance_to_coast: -3.6700330221577935e-06
+                is_peripheral: -0.9871326364594463
+                jobs_1500m: 0.052593867876900055
+                nonres_occupancy_3000m: -0.01269467089064962
+                np.log1p(jobs_within_30_min): 0.14407214324593465
+                np.log1p(population_within_15_min): -0.24566397407141932
+                year_built: 0.003041410084046841
             Std. Error:
-                I(year_built < 1940)[T.True]: 0.06837117570530643
-                I(year_built > 2005)[T.True]: 0.061799101904328343
-                Intercept: 1.4344231496061624
-                ave_income: 0.006061849835077521
-                distance_to_coast: 6.258619562590373e-07
-                jobs_1500m: 0.009674099206810999
-                nonres_occupancy_3000m: 0.016938921305410685
-                np.log1p(jobs_within_30_min): 0.018830837132949158
-                np.log1p(population_within_15_min): 0.02046344327138737
-                year_built: 0.0007112243185565982
+                I(year_built < 1940)[T.True]: 0.06820163123591974
+                I(year_built > 2005)[T.True]: 0.06164702939914138
+                Intercept: 1.4328585143856598
+                ave_income: 0.006046680528021241
+                distance_to_coast: 6.248727959813507e-07
+                is_peripheral: 0.35382206122361165
+                jobs_1500m: 0.009651838156320433
+                nonres_occupancy_3000m: 0.01689812927020744
+                np.log1p(jobs_within_30_min): 0.01884071980531459
+                np.log1p(population_within_15_min): 0.020469434888295824
+                year_built: 0.0007096932780562313
             T-Score:
-                I(year_built < 1940)[T.True]: 2.632557337652465
-                I(year_built > 2005)[T.True]: 2.8444560564818993
-                Intercept: -1.995107651250032
-                ave_income: 8.850255018892721
-                distance_to_coast: -5.744129031377073
-                jobs_1500m: 5.492818910939738
-                nonres_occupancy_3000m: -0.7881860687940161
-                np.log1p(jobs_within_30_min): 7.867926975995037
-                np.log1p(population_within_15_min): -11.79644108305517
-                year_built: 4.350260128376905
-        fit_rsquared: 0.23177815096395527
-        fit_rsquared_adj: 0.22665287547001578
+                I(year_built < 1940)[T.True]: 2.6193089490818293
+                I(year_built > 2005)[T.True]: 2.825235678526931
+                Intercept: -1.8488883839129482
+                ave_income: 8.878636486110235
+                distance_to_coast: -5.8732481966895
+                is_peripheral: -2.7899126273971633
+                jobs_1500m: 5.449103789878548
+                nonres_occupancy_3000m: -0.751247116627945
+                np.log1p(jobs_within_30_min): 7.6468492039935105
+                np.log1p(population_within_15_min): -12.001502504198932
+                year_built: 4.285527534341195
+        fit_rsquared: 0.2361885458881513
+        fit_rsquared_adj: 0.23052228881017012
         fitted: true
         model_expression: np.log1p(nonres_rent_per_sqft) ~ I(year_built < 1940) +
             I(year_built > 2005) + ave_income + jobs_1500m + year_built + distance_to_coast
             + nonres_occupancy_3000m + np.log1p(jobs_within_30_min) + np.log1p(population_within_15_min)
+            + is_peripheral
         name: *id003
 
 fitted: true

@@ -19,10 +19,10 @@ set_nan_price_to_zero: True
 
 
 rates:
-  households_relocation: .05
-  jobs_relocation: .05
-  simple_households_transition: .02
-  simple_jobs_transition: .02
+  households_relocation: .005
+  jobs_relocation: .005
+  simple_households_transition: .01
+  simple_jobs_transition: .01
 
 
 build_networks:
@@ -47,6 +47,7 @@ feasibility:
   residential_to_yearly: True
   pass_through:
     - oldest_building
+    - newest_building
     - total_sqft
     - max_far
     - max_dua
