@@ -360,21 +360,18 @@ def proportion_developable(parcels):
 def parcel_is_allowed(form):
     parcels = orca.get_table('parcels')
     zoning_allowed_uses = orca.get_table('zoning_allowed_uses').to_frame()
-    
-    if form == 'sf_detached':
-        allowed = zoning_allowed_uses[19]
-    elif form == 'sf_attached':
-        allowed = zoning_allowed_uses[20]
-    elif form == 'mf_residential':
-        allowed = zoning_allowed_uses[21]
-    elif form == 'light_industrial':
-        allowed = zoning_allowed_uses[2]
-    elif form == 'heavy_industrial':
-        allowed = zoning_allowed_uses[3]
+    if form == 'residential':
+        allowed = zoning_allowed_uses[19]|zoning_allowed_uses[20]|zoning_allowed_uses[21]
+    elif form == 'industrial':
+        allowed = zoning_allowed_uses[2]|zoning_allowed_uses[3]
     elif form == 'office':
         allowed = zoning_allowed_uses[4]
     elif form == 'retail':
         allowed = zoning_allowed_uses[5]
+    elif form == 'mixedresidential':
+        allowed = (zoning_allowed_uses[4]|zoning_allowed_uses[5])&(zoning_allowed_uses[19]|zoning_allowed_uses[20]|zoning_allowed_uses[21])
+    elif form == 'mixedoffice':
+        allowed = (zoning_allowed_uses[4]|zoning_allowed_uses[5])&(zoning_allowed_uses[19]|zoning_allowed_uses[20]|zoning_allowed_uses[21])
     else:
         df = pd.DataFrame(index=parcels.index)
         df['allowed'] = True
@@ -385,11 +382,28 @@ def parcel_is_allowed(form):
 @orca.injectable('parcel_sales_price_sqft_func', autocall=False)
 def parcel_sales_price_sqft(use):
     s = parcel_average_price(use)
-    if use == "residential": s *= 1.2
+    if use == "residential": 
+        resunits = orca.get_table('buildings').residential_units.sum()*1.0
+        hh = len(orca.get_table('households'))
+        vacancy_rate = 1.0 - (hh/resunits)
+        if vacancy_rate < .1:
+            price_adjustment_factor = 1.2*(.1/vacancy_rate)
+        else:
+            price_adjustment_factor = 1.2
+        print 'Residential price adjustment factor is: %s' % price_adjustment_factor
+        s *= price_adjustment_factor
     return s
     
 @orca.injectable('parcel_average_price', autocall=False)
 def parcel_average_price(use):
+    if use == "residential":
+        buildings = orca.get_table('buildings')
+        s = misc.reindex(buildings.
+                            res_price_per_sqft[buildings.general_type ==
+                                              "Residential"].
+                            groupby(buildings.luz_id).quantile(.85),
+                            orca.get_table('parcels').luz_id).clip(150, 1250)
+        return s
     return misc.reindex(orca.get_table('nodes')[use],
                         orca.get_table('parcels').node_id)
                         
@@ -415,13 +429,12 @@ def max_far(parcels, zoning):
     df.index.name = 'parcel_id'
     return df.max_far
     
-##Placeholder-  building height currently unconstrained (very high limit-  1000 ft.)
-@orca.column('parcels', 'max_height', cache=True)
+@orca.column('parcels', 'max_height', cache=True) ##Placeholder-  building height currently unconstrained (very high limit-  1000 ft.)
 def max_height(parcels):
     return pd.Series(np.ones(len(parcels))*1000.0, index = parcels.index)
     
     
-@orca.column('parcels', 'total_sqft')
+@orca.column('parcels', 'total_sqft', cache=False)
 def total_sqft(parcels, buildings):
     return buildings.building_sqft.groupby(buildings.parcel_id).sum().\
         reindex(parcels.index).fillna(0)
@@ -429,8 +442,14 @@ def total_sqft(parcels, buildings):
 
 @orca.column('parcels', 'building_purchase_price_sqft', cache=True, cache_scope='iteration')
 def building_purchase_price_sqft():
-    return parcel_average_price("residential") * .81
-
+    # buildings = orca.get_table('buildings')
+    # s = misc.reindex(buildings.res_price_per_sqft[buildings.general_type ==
+                                          # "Residential"].
+                        # groupby(buildings.luz_id).quantile(.4),
+                        # orca.get_table('parcels').luz_id).clip(90, 700)
+    s = misc.reindex(orca.get_table('nodes')['residential'],
+                        orca.get_table('parcels').node_id)
+    return s * .81 # In relation to Bay Area via RS Means metro scaling factor
 
 @orca.column('parcels', 'building_purchase_price', cache=True, cache_scope='iteration')
 def building_purchase_price(parcels):
