@@ -229,30 +229,28 @@ def model_integration_indicators():
     
 @orca.step('buildings_to_uc')
 def buildings_to_uc(buildings):
+    import psycopg2
     year = get_year()
     
-    # Export newly predicted buildings (from proforma or Sitespec) to Urban Canvas
+    # Export newly predicted buildings (from proforma or scheduled_development_events) to Urban Canvas
     b = buildings.to_frame(buildings.local_columns)
-    new_buildings =  b[(b.note=='simulated') | (b.note.str.startswith('Sitespec'))]
-    new_buildings = new_buildings[new_buildings.year_built == year]
+    new_buildings =  b[b.year_built == year]
     new_buildings = new_buildings.reset_index()
-    new_buildings = new_buildings.rename(columns = {'development_type_id':'building_type_id'})
+    if 'development_type_id' in new_buildings.columns:
+        new_buildings = new_buildings.rename(columns = {'development_type_id':'building_type_id'})
     new_buildings['building_sqft'] = new_buildings.residential_sqft + new_buildings.non_residential_sqft
     new_buildings['sqft_per_unit'] =  new_buildings.residential_sqft/new_buildings.residential_units
-    del new_buildings['res_price_per_sqft']
-    del new_buildings['nonres_rent_per_sqft']
-    new_buildings.parcel_id = new_buildings.parcel_id.astype('int32')
-    new_buildings.residential_units = new_buildings.residential_units.astype('int32')
-    new_buildings.non_residential_sqft = new_buildings.non_residential_sqft.astype('int32')
-    new_buildings.stories = new_buildings.stories.astype('int32')
-    new_buildings.residential_sqft = new_buildings.residential_sqft.astype('int32')
-    new_buildings.building_sqft = new_buildings.building_sqft.fillna(0).astype('int32')
-    new_buildings.sqft_per_unit = new_buildings.sqft_per_unit.fillna(0).astype('int32')
+    
+    # Requirement columns
+    new_buildings = new_buildings[['building_id', 'parcel_id', 'building_type_id', 'improvement_value', 'residential_units', 'non_residential_sqft', 'stories', 'year_built', 'building_sqft', 'sqft_per_unit']]
+    for col in ['parcel_id', 'residential_units', 'non_residential_sqft', 'year_built',
+                'stories', 'building_sqft', 'sqft_per_unit']:
+        new_buildings[col] = new_buildings[col].fillna(0).astype('int32')
     
     # Urban Canvas database connection
     conn_string = ""
     
-    if 'uc_conn' not in orca._INJECTABLES.keys():
+    if 'uc_conn' not in orca.list_injectables():
         conn=psycopg2.connect(conn_string)
         cur = conn.cursor()
         
@@ -290,7 +288,7 @@ def buildings_to_uc(buildings):
     max_bid = get_val_from_uc_db("select max(building_id) FROM building where building_id<100000000;")
     new_buildings.building_id = np.arange(max_bid+1, max_bid+1+len(new_buildings))
 
-    if 'projects_num' not in orca._INJECTABLES.keys(): 
+    if 'projects_num' not in orca.list_injectables(): 
         exec_sql_uc("INSERT INTO scenario(id, name, type) select nextval('scenario_id_seq'), 'Run #' || cast(currval('scenario_id_seq') as character varying), 1;")
         nextval = get_val_from_uc_db("SELECT MAX(ID) FROM SCENARIO WHERE ID < 100000;")
         orca.add_injectable('projects_num', nextval)
