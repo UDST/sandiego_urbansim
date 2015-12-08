@@ -9,9 +9,9 @@ San Diego template model
 
 Put the contents of the following zip file into the data directory:
 
-* https://dl.dropboxusercontent.com/u/69619688/sandag_data_11202015.zip
+* https://dl.dropboxusercontent.com/u/69619688/sandiego_data_12042015.zip
 
-###Dependencies
+###Installation
 
 1.)  Install Anaconda python
 
@@ -19,4 +19,4 @@ Put the contents of the following zip file into the data directory:
 
 3.)  git clone https://github.com/udst/urbansim; cd urbansim; python setup.py develop
 
-4.)  git clone https://github.com/udst/urbansim_defaults; cd urbansim_defaults; python setup.py develop
+4.)  git clone https://github.com/UDST/sandiego_urbansim.  Populate the data directory (see above).
