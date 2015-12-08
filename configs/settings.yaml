@@ -1,5 +1,7 @@
 store: sandag.h5
 
+urbancanvas: False
+
 aggregation_tables:
   - nodes
 

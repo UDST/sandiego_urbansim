@@ -29,6 +29,10 @@ def run_number():
 @orca.injectable("summary", cache=True)
 def simulation_summary_data(run_number):
     return utils.SimulationSummaryData(run_number)
+    
+@orca.injectable('conn_string', cache=True)
+def conn_string():
+    return ""
         
 @orca.injectable('year')
 def year(iter_var):
@@ -77,8 +81,18 @@ def zoning(store):
     return df
     
 @orca.table('scheduled_development_events', cache=True)
-def scheduled_development_events(store):
-    df = store['scheduled_development_events']
+def scheduled_development_events(store, settings):
+    if settings['urbancanvas']:
+        import urbancanvas
+        print 'Loading development projects from Urban Canvas for scheduled_development_events'
+        df = urbancanvas.get_development_projects()
+        ##Add any additional needed columns here
+        df['note'] = 'Scheduled development event'
+        for col in ['improvement_value', 'res_price_per_sqft', 'nonres_rent_per_sqft']:
+            df[col] = 0.0
+    else:
+        print 'Loading scheduled_development_events from h5'
+        df = store['scheduled_development_events']
     return df
     
 @orca.table('zoning_allowed_uses', cache=True)
