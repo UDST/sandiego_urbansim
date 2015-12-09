@@ -243,7 +243,7 @@ def buildings_to_uc(buildings, settings):
         new_buildings['sqft_per_unit'] =  new_buildings.residential_sqft/new_buildings.residential_units
         new_buildings = new_buildings[['parcel_id', 'building_type_id', 'improvement_value', 'residential_units', 'non_residential_sqft', 'stories', 'year_built', 'building_sqft', 'sqft_per_unit']]  # These are the fields you need.  And index should be named 'building_id'.
         for col in ['parcel_id', 'residential_units', 'non_residential_sqft', 'year_built',
-                    'stories', 'building_sqft', 'sqft_per_unit']:
+                    'stories', 'building_sqft', 'sqft_per_unit', 'improvement_value']:
             new_buildings[col] = new_buildings[col].fillna(0).astype('int32')
 
         # Export to database
